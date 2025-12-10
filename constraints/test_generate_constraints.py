@@ -55,7 +55,7 @@ def test_generate_constraints_individually():
 def test_generate_constraints():
     weights, biases = generate_weights(100, 10, 10, 4)
 
-    res = generate_constraints(weights, biases)
+    res, _, _ = generate_constraints(weights, biases)
     print(res)
 
 if __name__ == "__main__":

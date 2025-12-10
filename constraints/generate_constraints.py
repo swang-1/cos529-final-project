@@ -29,7 +29,7 @@ def generate_constraints(weights, biases):
     res += generate_linear_layer_constraints(xs, ys, weights, biases)
     res += generate_relu_constraints(xs, ys)
 
-    return res
+    return res, xs, ys
 
 
 def get_xs(input_size, layer_sizes):
