@@ -1,0 +1,6 @@
+Results for experiment 1
+2 layers: ,101.28291988372803,5.829269170761108,242.11798095703125,Satisfiablility:,unsat,sat,unsat,Number of constraints: 45
+4 layers: ,300.07961106300354,300.0381350517273,300.02280282974243,Satisfiablility:,unknown,unknown,unknown,Number of constraints: 65
+6 layers: ,300.03593707084656,300.0908570289612,300.03702998161316,Satisfiablility:,unknown,unknown,unknown,Number of constraints: 105
+8 layers: ,300.15775990486145,300.0438151359558,300.34589529037476,Satisfiablility:,unknown,unknown,unknown,Number of constraints: 145
+10 layers: ,300.72004890441895,300.10348677635193,300.8582272529602,Satisfiablility:,unknown,unknown,unknown,Number of constraints: 185

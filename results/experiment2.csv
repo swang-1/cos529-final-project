@@ -1,0 +1,6 @@
+Times for experiment 2
+Layer size 10: ,0.5868270397186279,115.55201411247253,90.02644300460815,Satisfiablility:,sat,unsat,unsat,Number of constraints: 45
+Layer size 20: ,51.35321807861328,300.0195298194885,4.9152820110321045,Satisfiablility:,sat,unknown,sat,Number of constraints: 65
+Layer size 30: ,17.019169092178345,300.04853773117065,95.79874801635742,Satisfiablility:,sat,unknown,sat,Number of constraints: 85
+Layer size 40: ,300.0375077724457,300.2810387611389,300.02219009399414,Satisfiablility:,unknown,unknown,unknown,Number of constraints: 105
+Layer size 50: ,18.68272590637207,300.0127468109131,93.27655696868896,Satisfiablility:,sat,unknown,sat,Number of constraints: 125
