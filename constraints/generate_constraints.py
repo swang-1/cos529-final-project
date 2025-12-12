@@ -32,6 +32,35 @@ def generate_constraints(weights, biases):
     return res, xs, ys
 
 
+def generate_constraints_no_nonlinearity(weights, biases):
+    '''
+    Generate all constraints for the FFNN describes by the given
+    weights and biases with no non-linearity.
+    
+    Inputs:
+        weights: A list of matrices where each matrix contains the
+            linear weights of each layer
+        biases: A list of vectors where each vector represents the
+            linear bias of each layer
+    Output:
+        res: A list of constraints for the FFNN described by weights
+            and biases that can be added to a solver
+    '''
+    input_size = len(weights[0])
+    layer_sizes = [len(weights[i][0]) for i in range(len(weights))]
+
+    xs = get_xs(input_size, layer_sizes[:-1])
+    ys = get_ys(layer_sizes)
+
+    res = []
+
+    res += generate_input_constraints(xs)
+    res += generate_linear_layer_constraints(xs, ys, weights, biases)
+    res += generate_id_activation_constraints(xs, ys)
+
+    return res, xs, ys
+
+
 def get_xs(input_size, layer_sizes):
     '''
     Returns the matrix of Z3 variables for an n-layer FFNN.
@@ -128,6 +157,28 @@ def generate_relu_constraints(xs, ys):
     for i in tqdm(range(1, len(ys) - 1)):
         for j in range(len(ys[i])):
             constraint = xs[i][j] == z3.If(ys[i][j] >= 0, ys[i][j], 0)
+            res.append(constraint)
+
+    return res
+
+def generate_id_activation_constraints(xs, ys):
+    '''
+    Generate the constraints corresponding to the identity activation function.
+    These constraints are for experiments 
+
+    Input:
+        xs: An array of Z3 variables where xs[i] represents the vector
+            after applying the transformation/activation function
+            at layer i
+        ys: An array of Z3 variables where ys[i] represents the vector
+            after applying the linear transformation at layer i
+    Output:
+        res: TThe list of Z3 solver constraints corresponding to the relu applications
+    '''
+    res = []
+    for i in tqdm(range(1, len(ys) - 1)):
+        for j in range(len(ys[i])):
+            constraint = xs[i][j] == ys[i][j]
             res.append(constraint)
 
     return res
